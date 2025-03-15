@@ -1,79 +1,139 @@
-body
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: hsl(0, 0%, 90%);
+/* CONSTANTS */
+
+:root {
+    --color-input: #efefef;
 }
 
-#myH1
-{
-    font-size: 4rem;
-    font-family: "Arial", sans-serif;
-    color: hsl(0, 0%, 25%);
+/* CSS RESET */
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+  
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
-#container
-{
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    letter-spacing: .06em;
+    line-height: 21px;
+}
+
+button {
+    border-style: none;
+    letter-spacing: .04em;
+    padding: 0px;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+img {
+    max-height: 100%;
+    width: auto;
+}
+
+input {
+    outline: none;
+    border-style: none;
+    letter-spacing: .04em;
+    padding: 0px 20px;
+}
+
+/* INTERVAL TIMERS CSS */
+/* @font-face {
+    font-family: roboto-regular;
+    src: url(./extras/Roboto/static/Roboto-Regular.ttf);
+} */
+* {
+    /* font-family: roboto-regular; */
+    font-family:  "Lucida Console", "Courier New", monospace;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+body {
+    background-color: red;
+}
+
+.align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .intervals {
+    display: flex;
+    justify-content: center;
+} */
+
+.container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 30px;
-    border: 5px solid;
-    border-radius: 50px;
+    width: 70vw;
+    text-align: center;
+    /* vertical-align:text-bottom; */
+    color: black;
     background-color: white;
+    padding: 10px;
+    gap: 5px;
 }
 
-#display
-{
-    font-size: 5rem;
-    font-family: monospace;
-    font-weight: bold;
-    color: hsl(0, 0%, 30%);
-    text-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.75);
-    margin-bottom: 25px;
+/* div {
+    vertical-align: middle;
+} */
+
+.interval {
+    display: flex;
+    /* background-color: lightblue; */
 }
 
-#controls button
-{
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: 10px 20px;
-    margin: 5px;
-    min-width: 125px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+.rest {
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* text-align: center; */
+    /* background-color: lightgreen; */
+}
+
+.rest > div:first-child {
+    justify-content: end;
+    /* background-color: purple; */
+}
+
+.rest > div {
+    /* background-color: yellow; */
+}
+
+.interval, .rest {
+    gap: 10px;
+}
+
+.interval *, .rest * {
+    width: 32px;
+    height: 32px;
+}
+
+.container > div > :first-child {
+    flex: 1;
+}
+
+input {
+    background-color: var(--color-input);
+    border-radius: 5px;
+}
+
+button {
+    display: flex;
+    background-color: black;
     color: white;
-    transition: background-color 0.5s ease;
+    padding: 4px;
+    border-radius: 5px;
 }
 
-#startBtn
-{
-    background-color: hsl(115, 100%, 40%);
-}
-
-#startBtn:hover
-{
-    background-color: hsl(115, 100%, 30%);
-}
-
-#stopBtn
-{
-    background-color: hsl(10, 90%, 50%);
-}
-
-#stopBtn:hover
-{
-    background-color: hsl(10, 90%, 40%);
-}
-
-#resetBtn
-{
-    background-color: hsl(205, 90%, 60%);
-}
-
-#resetBtn:hover
-{
-    background-color: hsl(205, 90%, 50%);
+img {
+    object-fit: contain;
 }

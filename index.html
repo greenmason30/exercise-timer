@@ -3,24 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Circuit Timer</title>
+    <title>Hangboard Intervals</title>
     <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700&amp;lang=en"> -->
 </head>
 <body>
-
-    <h1 id="myH1">Stopwatch</h1>
-
-    <div id="container">
-        <div id="display">
-            00:00:00:00
+    <div class="intervals align">
+        <div class="container">
+            <div class="interval">
+                <input type="text" placeholder="Half Crimp">
+                <button class="dec"><img src="./extras/decrement.svg"/></button>
+                <button class="inc"><img src="./extras/increment.svg"/></button>
+                <div class="time align">10</div>
+                <button class="remove"><img src="./extras/remove.svg"/></button>
+            </div>
+            
+            <div class="rest">
+                <div class="align">Rest</div>
+                <button class="dec"><img src="./extras/decrement.svg"/></button>
+                <button class="inc"><img src="./extras/increment.svg"/></button>
+                <div class="time align">20</div>
+                <div></div>
+            </div>
         </div>
-        <div id="controls">
-            <button id="startBtn" onclick="start()">Start</button>
-            <button id="stopBtn" onclick="stop()">Stop</button>
-            <button id="resetBtn" onclick="reset()">Reset</button>
-        </div>
+        <!-- <ol>
+            <li>
+                <p>Half Crimp</p>
+                <p class="reps">Reps: 6</p>
+            </li>
+            <li>
+                <p>3-Finger Drag</p>
+                <p class="reps">Reps: 6</p>
+            </li>
+            <li>
+                <p>Front 2-Finger Drag</p>
+                <p class="reps">Reps: 2</p>
+            </li>
+            <li>
+                <p>Middle 2-Finger Drag</p>
+                <p class="reps">Reps: 2</p>
+            </li>
+            <li>
+                <p>Front 2-Finger Crimp</p>
+                <p class="reps">Reps: 2</p>
+            </li>
+            <li>
+                <p>Middle 2-Finger Crimp</p>
+                <p class="reps">Reps: 2</p>
+            </li>
+        </ol> -->
+
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
