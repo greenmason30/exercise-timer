@@ -60,6 +60,20 @@ input {
     font-weight: 900;
 }
 
+h1 {
+    font-size: 40px;
+    /* background-color: yellow; */
+    padding: 10px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
 body {
     min-height: 100vh;
     display: flex;
