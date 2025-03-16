@@ -155,3 +155,7 @@ input {
     cursor: pointer;
     filter: invert(1);
 }
+
+.interval > button:not(.remove) {
+    background-color: red;
+}
