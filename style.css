@@ -97,7 +97,13 @@ body {
     transition: var(--time-transition);
 }
 
-.controls > button:hover {
+/* .controls > button:hover {
+    background-color: var(--color-gray-button);
+    cursor: pointer;
+    color: white;
+} */
+
+.control-btn-enable-hover:hover {
     background-color: var(--color-gray-button);
     cursor: pointer;
     color: white;
@@ -165,7 +171,16 @@ input {
     transition: var(--time-transition);
 }
 
-.container button:hover {
+.container button:disabled {
+    filter: brightness(60%);
+}
+
+/* .container button:hover {
+    cursor: pointer;
+    filter: invert(1);
+} */
+
+.interval-btn-enable-hover:hover {
     cursor: pointer;
     filter: invert(1);
 }

@@ -1,13 +1,24 @@
-let startTime = document.querySelector(".time").innerText;
+let startTime = document.querySelector(".time").textContent;
 let countdown = document.querySelector("#countdown");
 countdown.textContent = `${startTime} sec`;
 let intervalId;
 
-const buttons = document.querySelectorAll("button");//".interval > button:not(.remove)");
-buttons.forEach(function(btn){
+// Set up initial buttons
+const intervalsDiv = document.querySelector(".intervals");
+let intervalButtons = intervalsDiv.querySelectorAll("button");
+intervalButtons.forEach(function(btn){
     btn.addEventListener("click", buttonClicked);
-  });
+    btn.classList.add("interval-btn-enable-hover")
+});
 
+const controlsDiv = document.querySelector(".controls");
+const controlButtons = controlsDiv.querySelectorAll("button");
+controlButtons.forEach(function(btn){
+    btn.addEventListener("click", buttonClicked);
+    btn.classList.add("control-btn-enable-hover")
+});
+
+// FUNCTIONS
 function handleIncDecButtons(btn) {
     // Update interval time / rounds
     let intervalNum = btn;
@@ -20,15 +31,37 @@ function handleIncDecButtons(btn) {
     }
 
     // Update start time / countdown
-    startTime = document.querySelector(".time").innerText
+    startTime = document.querySelector(".time").textContent
     countdown.textContent = `${startTime} sec`;
+}
+
+function disableIntervalButtons() {
+    intervalButtons.forEach(function(btn){
+        btn.classList.remove("interval-btn-enable-hover")
+        btn.disabled = true;
+    });
+}
+
+function enableIntervalButtons() {
+    intervalButtons.forEach(function(btn){
+        btn.classList.add("interval-btn-enable-hover")
+        btn.disabled = false;
+    });
+}
+
+function reset() {
+    clearInterval(intervalId);
+    startTime = document.querySelector(".time").textContent;
+    countdown.textContent = `${startTime} sec`;
+    enableIntervalButtons();
+    document.querySelector("#startBtn").hidden = false;
 }
 
 function run() {
     startTime--;
     countdown.textContent = `${startTime} sec`;
     if (startTime == 0) {
-        clearInterval(intervalId);
+        reset();
     }
 }
 
@@ -40,6 +73,8 @@ function buttonClicked(e) {
         handleIncDecButtons(item);
     }
     else if (item.id == "startBtn") {
+        disableIntervalButtons();
+        document.querySelector("#startBtn").hidden = true;
         intervalId = setInterval(run, 1000);
     }
 }
