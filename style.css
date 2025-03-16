@@ -2,6 +2,11 @@
 
 :root {
     --color-input: #efefef;
+    --color-background: #acf39d;
+    --color-gray-button: #45554d;
+    --width-interval-container: 70vw;
+    --border-radius: 5px;
+    --time-transition: 0.4s;
 }
 
 /* CSS RESET */
@@ -56,7 +61,32 @@ input {
 }
 
 body {
-    background-color: red;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-background);
+    gap: 10px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+.controls > button {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-gray-button);
+    padding: 10px;
+    color: var(--color-gray-button);
+    transition: var(--time-transition);
+}
+
+.controls > button:hover {
+    background-color: var(--color-gray-button);
+    cursor: pointer;
+    color: white;
 }
 
 .align {
@@ -65,47 +95,32 @@ body {
     align-items: center;
 }
 
-/* .intervals {
-    display: flex;
-    justify-content: center;
-} */
+.intervals {
+    border: 1px solid #80b765;
+    padding: 16px;
+}
 
 .container {
     display: flex;
     flex-direction: column;
-    width: 70vw;
+    width: var(--width-interval-container);
     text-align: center;
     /* vertical-align:text-bottom; */
     color: black;
     background-color: white;
+    border-radius: var(--border-radius);
     padding: 10px;
     gap: 5px;
 }
 
-/* div {
-    vertical-align: middle;
-} */
-
-.interval {
+.interval, .rest {
     display: flex;
     /* background-color: lightblue; */
-}
-
-.rest {
-    display: flex;
-    /* align-items: center; */
-    /* justify-content: center; */
-    /* text-align: center; */
-    /* background-color: lightgreen; */
 }
 
 .rest > div:first-child {
     justify-content: end;
     /* background-color: purple; */
-}
-
-.rest > div {
-    /* background-color: yellow; */
 }
 
 .interval, .rest {
@@ -123,17 +138,20 @@ body {
 
 input {
     background-color: var(--color-input);
-    border-radius: 5px;
+    border-radius: var(--border-radius);
 }
 
-button {
+.container button {
     display: flex;
     background-color: black;
     color: white;
     padding: 4px;
-    border-radius: 5px;
+    border: 1px solid white;
+    border-radius: var(--border-radius);
+    transition: var(--time-transition);
 }
 
-img {
-    object-fit: contain;
+.container button:hover {
+    cursor: pointer;
+    filter: invert(1);
 }
