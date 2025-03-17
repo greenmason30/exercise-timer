@@ -3,7 +3,7 @@ let countdown = document.querySelector("#countdown");
 countdown.textContent = `${startTime} sec`;
 let intervalId;
 
-// Set up initial buttons
+// Set up initial buttons / event listeners
 const intervalsDiv = document.querySelector(".intervals");
 let intervalButtons = intervalsDiv.querySelectorAll("button");
 intervalButtons.forEach(function(btn){
@@ -16,6 +16,13 @@ const controlButtons = controlsDiv.querySelectorAll("button");
 controlButtons.forEach(function(btn){
     btn.addEventListener("click", buttonClicked);
     btn.classList.add("control-btn-enable-hover")
+});
+
+let firstInput = document.querySelector("input");
+const exerciseDiv = document.querySelector("h1");
+exerciseDiv.textContent = firstInput.textContent ? firstInput.textContent : firstInput.placeholder;
+firstInput.addEventListener("input", function(e) {
+    exerciseDiv.textContent = e.target.value ? e.target.value : firstInput.placeholder;
 });
 
 // FUNCTIONS
@@ -76,5 +83,12 @@ function buttonClicked(e) {
         disableIntervalButtons();
         document.querySelector("#startBtn").hidden = true;
         intervalId = setInterval(run, 1000);
+    }
+    else if (item.id == "restartBtn") {
+        reset();
+    }
+    else if (item.id == "pauseBtn") {
+        clearInterval(intervalId);
+        document.querySelector("#startBtn").hidden = false;
     }
 }
