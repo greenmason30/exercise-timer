@@ -1,7 +1,11 @@
 let startTime = document.querySelector(".time").textContent;
 let countdown = document.querySelector("#countdown");
 countdown.textContent = `${startTime} sec`;
+const currRoundDiv = document.querySelector(".currRound");
+const currTotalRoundsDiv = document.querySelector(".currTotalRounds");
+let firstIntervalRounds = document.querySelector(".rounds").textContent;
 let intervalId;
+let running = false;
 
 // Set up initial buttons / event listeners
 const intervalsDiv = document.querySelector(".intervals");
@@ -40,6 +44,10 @@ function handleIncDecButtons(btn) {
     // Update start time / countdown
     startTime = document.querySelector(".time").textContent
     countdown.textContent = `${startTime} sec`;
+
+    // Update rounds
+    totalRounds = document.querySelector(".rounds").textContent;
+    currTotalRoundsDiv.textContent = totalRounds;
 }
 
 function disableIntervalButtons() {
@@ -58,8 +66,13 @@ function enableIntervalButtons() {
 
 function reset() {
     clearInterval(intervalId);
+    // Time
     startTime = document.querySelector(".time").textContent;
     countdown.textContent = `${startTime} sec`;
+    // Rounds
+    currRoundDiv.textContent = 1;
+    currTotalRoundsDiv.textContent = document.querySelector(".rounds").textContent;
+    // Buttons
     enableIntervalButtons();
     document.querySelector("#startBtn").hidden = false;
 }
@@ -67,9 +80,12 @@ function reset() {
 function run() {
     startTime--;
     countdown.textContent = `${startTime} sec`;
-    if (startTime == 0) {
+    if (startTime == 0 && !running) {
         reset();
     }
+    // else {
+    //     startTime = 
+    // }
 }
 
 function buttonClicked(e) {

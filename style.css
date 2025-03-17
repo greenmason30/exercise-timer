@@ -70,8 +70,13 @@ h2 {
     font-size: 32px;
 }
 
-h3 {
+.roundsDisplay {
+    display: flex;
     font-size: 18px;
+}
+
+.roundsDisplay :first-child {
+    padding: 0px 8px;
 }
 
 body {
@@ -116,6 +121,9 @@ body {
 }
 
 .intervals {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     border: 1px solid #80b765;
     padding: 16px;
 }
@@ -187,4 +195,19 @@ input {
 
 .interval > button:not(.remove) {
     background-color: red;
+}
+
+/*  */
+/*  */
+/*  */
+.container2 {
+    display: grid;
+    width: var(--width-interval-container);
+    gap: 10px;
+    grid-template: repeat(3, 32px) / 1fr repeat(4, 32px);
+}
+
+.container2 button {
+    height: 32px;
+    width: auto;
 }
